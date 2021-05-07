@@ -14,11 +14,11 @@
   	<?php include('errors.php'); ?>
   	<div class="input-group">
   		<label>First Name</label>
-  		<input type="text" name="First_name" >
+  		<input type="text" name="first_name" >
   	</div>
   	<div class="input-group">
   		<label>Middle Name</label>
-  		<input type="text" name="Middle_name">
+  		<input type="text" name="middle_name">
   	</div>
   	<div class="input-group">
   		<button type="submit" class="btn" name="login_user">Login</button>

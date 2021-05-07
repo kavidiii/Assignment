@@ -15,7 +15,6 @@
    <div class="input-group">  
    <label>Title</label>  
    <select name="title" id="title">
-        <option>Select One</option>
         <option>Mr</option>
         <option>Mrs</option>
         <option>Miss</option>
@@ -35,10 +34,14 @@
   	  <input type="text" name="last_name" value="<?php echo $last_name; ?>">
   	</div>
   	<div class="input-group">
-  	  <label>Email</label>
-  	  <input type="email" name="email" value="<?php echo $email; ?>">
+  	  <label>Contact NO</label>
+  	  <input type="text" name="contact_no" value="<?php echo $contact_no; ?>">
   	</div>
   	<div class="input-group">
+  	  <label>District</label>
+  	  <input type="text" name="district" value="<?php echo $district; ?>">
+  	</div>
+	  <div class="input-group">
   	  <button type="submit" class="btn" name="reg_user">Register</button>
   	</div>
   	<p>
