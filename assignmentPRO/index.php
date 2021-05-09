@@ -11,17 +11,42 @@
   	header("location: login.php");
   }
 ?>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div class="form">
-        <p>Hey, <?php echo $_SESSION['first_name']; ?>!</p>
-        <p>You are now user dashboard page.</p>
-        <p><a href="logout.php">Logout</a></p>
+	<div class="header">
+		<h2>Home Page</h2>
+	</div>
+	<div class="content">
+		 
+		<!-- logged in user information -->
+		<div class="profile_info">
+			<img src="images/user_pro.png"  >
+
+			<div>
+				 
+            <strong><?php echo $_SESSION['user']['first']; ?></strong> 
+
+					<small>
+						<i  style="color: #888;">( Customer )</i> 
+						<br>
+						<a href="index.php?logout='1'" style="color: red;">logout</a>
+					</small>
+
+				 
+			</div>
+		</div>
+
+	</div>
+    <div class>
+    <?php
+       include "items.php";
+    ?>
     </div>
+     
 </body>
-<body>
+</html>

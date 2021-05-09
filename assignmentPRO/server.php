@@ -54,9 +54,13 @@ if (isset($_POST['reg_user'])) {
   	$query = "INSERT INTO customer (title,first_name,middle_name,last_name,contact_no,district) 
   			  VALUES('$title', '$first_name', '$middle_name','$last_name', '$contact_no',(SELECT id from district where district = '$district'))";
   	mysqli_query($db, $query);
+    $_SESSION['user']=array(
+      'first'=>$first_name ,
+      'middle'=>$middle_name
+      );
   	$_SESSION['first_name'] = $first_name;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+    if ( $first_name == 'admin'|| $first_name == 'Admin') {header("location: dashboard.php");die();  }else{header("location: index.php");die();  }
   }
 }
 
@@ -75,12 +79,30 @@ if (isset($_POST['login_user'])) {
          
         $query = "SELECT * FROM customer WHERE first_name='$first_name' AND middle_name='$middle_name'";
         $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) == 1) {
-          $_SESSION['first_name'] = $first_name;
-          $_SESSION['success'] = "You are now logged in";
-          header('location: index.php');
+        $row= mysqli_fetch_assoc($results);
+        $count=mysqli_num_rows($results);
+         
+        if ($count == 1) { // user found
+          // check if user is admin or user
+          $_SESSION['user']=array(
+            'first'=>$row['first_name'],
+            'middle'=>$row['middle_name']
+            );
+            $role=$_SESSION['user']['first']; 
+            $_SESSION['first_name'] = $first_name; 
+          $logged_in_user = mysqli_fetch_assoc($results);
+          if (  $role == 'admin'|| $role == 'Admin') {
+            header('location: dashboard.php');
+            die();   
+            
+          }else{
+            header('location: index.php');
+            die();   
+            
+           
+          }
         }else {
-            array_push($errors, "Wrong First Name/Middle Name combination");
+          array_push($errors, "Wrong username/password combination");
         }
     }
   }
