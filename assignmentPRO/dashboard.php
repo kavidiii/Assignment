@@ -38,8 +38,10 @@
 						<i  style="color: #888;">( System Admin )</i> 
 						<br>
 						<a href="index.php?logout='1'" style="color: red;">logout</a>
+                        <br>
+                        <br>
 					</small>
-
+                    <a href="search.php" class="btn btn-success pull-right"><i class="fa fa-plus"></i>Search Invoice report</a>
 				 
 			</div>
 		</div>
@@ -94,6 +96,8 @@ if ($result = $mysqli->query($query)) {
 }  
 ?>
 </div>
+
+ 
 </body>
 </html>
  
