@@ -108,7 +108,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
 </head>
 <body>
   <div class="header">
-  	<h2>ADD NEW ITEM</h2>
+  	<h2>UPDATE ITEM DETAILS</h2>
   </div>
 	
   <form method="post" action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>">
